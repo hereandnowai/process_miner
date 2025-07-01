@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Process Miner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-teal': '#008080',
+            'brand-gold': '#FFD700',
+            'glass-bg': 'rgba(255, 255, 255, 0.1)',
+            'glass-border': 'rgba(255, 255, 255, 0.2)',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          },
+          backdropBlur: {
+            'xs': '2px',
+            'sm': '4px',
+            'DEFAULT': '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '24px',
+          },
+          animation: {
+            fadeIn: 'fadeIn 0.5s ease-out',
+            fadeInRight: 'fadeInRight 0.5s ease-out forwards', // Added new animation
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0, transform: 'translateY(10px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+            fadeInRight: { // Added keyframes for fadeInRight
+              '0%': { opacity: 0, transform: 'translateX(20px)' },
+              '100%': { opacity: 1, transform: 'translateX(0px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!--
+    IMPORTANT: For local development, replace "YOUR_GEMINI_API_KEY_HERE"
+    with your actual Gemini API Key. This is for testing ONLY.
+    DO NOT commit your API key to version control.
+    In a production environment, API keys must be handled securely.
+  -->
+  <script>
+    window.process = {
+      env: {
+        // Replace with your actual key for local testing.
+        API_KEY: "YOUR_GEMINI_API_KEY_HERE" 
+      }
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+      color: #e5e7eb; /* Light gray text for better contrast on dark bg */
+    }
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.05); /* Lighter for dark mode */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .nav-active {
+      background-color: #008080; /* brand-teal */
+      color: white;
+    }
+     /* Scrollbar styling for a more modern look */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(40, 50, 70, 0.2); /* Darker track for contrast */
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #008080; /* brand-teal */
+      border-radius: 10px;
+      border: 2px solid transparent; /* Creates padding around thumb */
+      background-clip: content-box;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #006666; /* darker teal */
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInRight {
+        animation: fadeInRight 0.5s ease-out forwards;
+    }
+    @keyframes fadeInRight {
+        0% { opacity: 0; transform: translateX(20px); }
+        100% { opacity: 1; transform: translateX(0px); }
+    }
+    /* For foreignObject text wrapping in SVG */
+    .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-height: 1.2em; /* Adjust as needed */
+        max-height: 2.4em; /* line-height * number of lines */
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.2",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@heroicons/react/": "https://esm.sh/@heroicons/react@^2.2.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.5.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!-- This is where React will render the app -->
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

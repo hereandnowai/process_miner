@@ -1,0 +1,8 @@
+{
+  "name": "process_miner",
+  "description": "An AI-powered process mining application for analyzing, optimizing, and monitoring business processes. Features include a dashboard, AI chat assistant, process analyzer, and data upload capabilities.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "prompt": ""
+}
